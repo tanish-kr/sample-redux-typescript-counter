@@ -15,7 +15,7 @@ const counterReducer: Reducer<CounterState, CounterAction> = (
     case CounterActionType.ADD:
       return {
         ...state,
-        count: state.count + (action.amount || 0)
+        count: state.count + (action.payload?.amount || 0)
       };
     case CounterActionType.INCREMENT:
       return {

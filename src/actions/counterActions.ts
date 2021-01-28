@@ -6,11 +6,11 @@ export enum CounterActionType {
 
 export interface CounterAction {
   type: CounterActionType;
-  amount?: number;
+  payload?: { amount: number };
 }
 
 export const add = (amount: number): CounterAction => ({
-  amount,
+  payload: { amount },
   type: CounterActionType.ADD
 });
 
