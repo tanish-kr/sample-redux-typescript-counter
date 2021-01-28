@@ -1,11 +1,23 @@
-export function increment() {
-  return { type: "INCREMENT" };
+export enum CounterActionType {
+  ADD = "COUNTER/ADD",
+  DECREMENT = "COUNTER/DECREMENT",
+  INCREMENT = "COUNTER/INCREMENT"
 }
 
-export function decrement() {
-  return { type: "DECREMENT" };
+export interface CounterAction {
+  type: CounterActionType;
+  amount?: number;
 }
 
-export default interface counterAction {
-  type: string;
-}
+export const add = (amount: number): CounterAction => ({
+  amount,
+  type: CounterActionType.ADD
+});
+
+export const increment = (): CounterAction => ({
+  type: CounterActionType.INCREMENT
+});
+
+export const decrement = (): CounterAction => ({
+  type: CounterActionType.DECREMENT
+});
